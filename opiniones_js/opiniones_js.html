@@ -4,12 +4,23 @@
 <head>
     <title>Formulario de Opinión</title>
     <style>
-        .error-message {
-            color: red;
+        .opinionForm {
+            background-color: bisque;
+            margin: 10px;
+            padding: 20px;
+            width: 40%;
         }
 
-        .success-message {
-            color: green;
+        .formation {
+            width: auto;
+        }
+
+        .inpForm:focus {
+            border: 2px solid blue;
+        }
+
+        .inpForm:hover {
+            border: 5px solid green;
         }
 
         .stars {
@@ -24,36 +35,65 @@
         .rating {
             margin-top: 10px;
         }
+
+        .divListaOpiniones {
+            text-align: center;
+            align-items: center;
+        }
+
+        .OpinicionesTabla {
+            text-align: center;
+            align-items: center;
+            width: 50%;
+        }
+
+        .tabla {
+            text-align: center;
+            align-items: center;
+            width: 100%;
+            background-color: grey;
+
+        }
+
+        th,
+        td {
+            margin: 5px;
+            border: 2px solid black;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
     </style>
 </head>
 
 <body>
     <center>
-        <form id="opinionForm">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" readonly>
-            <div id="nombreMessage"></div>
-
-            <label for="apellidos">Apellidos:</label>
-            <input type="text" id="apellidos" readonly>
-            <div id="apellidosMessage"></div>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" readonly>
-            <div id="emailMessage"></div>
-
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" readonly>
-            <div id="telefonoMessage"></div>
-
-            <label for="asunto">Asunto:</label>
-            <input type="text" id="asunto" readonly>
-            <div id="asuntoMessage"></div>
-
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" readonly></textarea>
-            <div id="mensajeMessage"></div>
-
+        <form action="#" class="opinionForm">
+            <div class="formation">
+                <div id="nombreMessage">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="inpForm" readonly placeholder="Ingrese su nombre">
+                </div>
+                <div id="apellidosMessage">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" class="inpForm" readonly placeholder="Ingrese su apellido">
+                </div>
+                <div id="emailMessage">
+                    <label for="email">Email:</label>
+                    <input type="email" class="inpForm" readonly placeholder="abd@correo.co">
+                </div>
+                <div id="telefonoMessage">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" class="inpForm" readonly placeholder="(+00)000 000 0000">
+                </div>
+                <div id="asuntoMessage">
+                    <label for="asunto">Asunto:</label>
+                    <input type="text" class="inpForm" readonly placeholder="Asunto">
+                </div>
+                <div id="mensajeMessage">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea class="inpForm" readonly placeholder="Esto es un mensaje"></textarea>
+                </div>
+            </div>
             <div class="stars" data-rating="0">
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
@@ -63,12 +103,48 @@
             </div>
             <div class="rating">Valor del ranking: 0</div>
 
-
             <button type="button" onclick="cancelar()">Cancelar</button>
             <button type="button" onclick="reiniciar()">Reiniciar</button>
-            <button type="button" onclick="enviar()" id="enviarBtn" disabled>Enviar</button>
+            <button type="submit" onclick="enviar()" id="enviarBtn" disabled>Enviar</button>
         </form>
     </center>
+
+    <div class="divListaOpiniones">
+        <h2>Lista de opiniones</h2>
+        <center>
+            <div class="OpinicionesTabla">
+                <table class="tabla">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                        <th>Asunto</th>
+                        <th>Mensaje</th>
+                        <th>Puntuacion</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </center>
+    </div>
 
 
     <script>
@@ -82,42 +158,13 @@
                 document.querySelector('.stars').setAttribute('data-rating', rating);
 
                 stars.forEach((s, i) => {
-                    if (i < rating) {
-                        s.style.color = 'gold';
-                    } else {
-                        s.style.color = 'lightgray';
-                    }
+                    if (i < rating) { s.style.color = 'gold'; } else { s.style.color = 'lightgray'; }
                 });
             });
         });
-
-        function validarNombre() {
-            // Validación del nombre
-        }
-
-        function validarApellidos() {
-            // Validación de apellidos
-        }
-
-        function validarEmail() {
-            // Validación de email
-        }
-
-        function validarTelefono() {
-            // Validación de teléfono
-        }
-
-        function validarAsunto() {
-            // Validación de asunto
-        }
-
-        function validarMensaje() {
-            // Validación de mensaje
-        }
-
         function mostrarIconoMensaje(elementId, mensaje, tipo) {
-            const messageElement = document.getElementById(elementId + "Message");
-            messageElement.innerHTML = tipo === "error" ? `<img src="x.png"> ${mensaje}` : `<img src="chulito.png"> ${mensaje}`;
+            const messageElement = document.getElementById(elementId + "Message"); messageElement.innerHTML = tipo === "error" ?
+                `<img src="x.png"> ${mensaje}` : `<img src="chulito.png"> ${mensaje}`;
         }
 
         function cancelar() {
