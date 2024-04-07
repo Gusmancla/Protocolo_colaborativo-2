@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulario de Opinión</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+
+        .success-message {
+            color: green;
+        }
+
+        .stars {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .star {
+            color: lightgray;
+        }
+
+        .rating {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <form id="opinionForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" readonly>
+            <div id="nombreMessage"></div>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" readonly>
+            <div id="apellidosMessage"></div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" readonly>
+            <div id="emailMessage"></div>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" readonly>
+            <div id="telefonoMessage"></div>
+
+            <label for="asunto">Asunto:</label>
+            <input type="text" id="asunto" readonly>
+            <div id="asuntoMessage"></div>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" readonly></textarea>
+            <div id="mensajeMessage"></div>
+
+            <div class="stars" data-rating="0">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+            </div>
+            <div class="rating">Valor del ranking: 0</div>
+
+
+            <button type="button" onclick="cancelar()">Cancelar</button>
+            <button type="button" onclick="reiniciar()">Reiniciar</button>
+            <button type="button" onclick="enviar()" id="enviarBtn" disabled>Enviar</button>
+        </form>
+    </center>
+
+
+    <script>
+        const stars = document.querySelectorAll('.star');
+        const ratingText = document.querySelector('.rating');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                const rating = index + 1;
+                ratingText.textContent = `Valor del ranking: ${rating}`;
+                document.querySelector('.stars').setAttribute('data-rating', rating);
+
+                stars.forEach((s, i) => {
+                    if (i < rating) {
+                        s.style.color = 'gold';
+                    } else {
+                        s.style.color = 'lightgray';
+                    }
+                });
+            });
+        });
+
+        function validarNombre() {
+            // Validación del nombre
+        }
+
+        function validarApellidos() {
+            // Validación de apellidos
+        }
+
+        function validarEmail() {
+            // Validación de email
+        }
+
+        function validarTelefono() {
+            // Validación de teléfono
+        }
+
+        function validarAsunto() {
+            // Validación de asunto
+        }
+
+        function validarMensaje() {
+            // Validación de mensaje
+        }
+
+        function mostrarIconoMensaje(elementId, mensaje, tipo) {
+            const messageElement = document.getElementById(elementId + "Message");
+            messageElement.innerHTML = tipo === "error" ? `<img src="x.png"> ${mensaje}` : `<img src="chulito.png"> ${mensaje}`;
+        }
+
+        function cancelar() {
+            // Acción para cancelar
+        }
+
+        function reiniciar() {
+            // Acción para reiniciar
+        }
+
+        function enviar() {
+            // Acción para enviar formulario
+        }
+
+
+    </script>
+</body>
+
+</html>

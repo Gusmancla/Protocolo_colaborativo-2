@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería de Fotos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #5c5858;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 10px;
+        max-width: 800px;
+        padding: 20px;
+      }
+
+      .gallery-item {
+        overflow: hidden;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item img:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="imagenes/foto3.jpg" alt="Imagen 1" />
+      </div>
+      <div class="gallery-item">
+        <img src="imagenes/foto2.jpg" alt="Imagen 2" />
+      </div>
+      <div class="gallery-item">
+        <img src="imagenes/foto4.jpg" alt="Imagen 3" />
+      </div>
+    </div>
+
+    <script></script>
+  </body>
+</html>

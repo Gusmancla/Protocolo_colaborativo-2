@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+header {
+  background-image: url("imagenes/fondo.jpg");
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 270px 0;
+  margin-bottom: 0px;
+  /* Espacio para el sidebar */
+}
+
+h1 {
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+h2 {
+  font-size: 1.5em;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+footer {
+  background-color: #5c5858;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  min-width: 200px;
+  background-color: #5c5858;
+  color: white;
+  height: 100vh;
+  overflow-y: auto;
+  padding-top: 30px;
+}
+
+.profile {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.profile img {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+nav {
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin-bottom: 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a img {
+  margin-right: 10px;
+}
+
+.sidebar.closed {
+  transform: translateX(-250px);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  min-width: 200px;
+  background-color: #5c5858;
+  color: white;
+  height: 100vh;
+  overflow-y: auto;
+  padding-top: 30px;
+  transition: transform 0.3s;
+}
+
+.sidebar {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s;
+}
+
+.sidebar-open {
+  width: 300px;
+}
+
+#open-sidebar {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#open-sidebar:hover {
+  background-color: #5c5858;
+  color: #fff;
+}
